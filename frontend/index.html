@@ -1,0 +1,115 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Boardwalk AI – Autonomous App Builder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="bw.css" />
+</head>
+<body>
+  <div class="bw-shell">
+    <header class="bw-header">
+      <div class="bw-title">Boardwalk AI</div>
+      <div class="bw-subtitle">Autonomous Full‑Stack App Builder</div>
+    </header>
+
+    <main class="bw-main">
+      <section class="bw-panel">
+        <h2>Project & Goal</h2>
+        <div class="bw-row">
+          <label class="bw-label">Project name</label>
+          <input id="project-name" class="bw-input" placeholder="rollshow, arborist-garden, trading-app..." />
+        </div>
+        <div class="bw-row">
+          <label class="bw-label">High‑level goal</label>
+          <textarea id="project-goal" class="bw-textarea" placeholder="Describe the app and what must be finished..."></textarea>
+        </div>
+      </section>
+
+      <section class="bw-panel">
+        <h2>Capabilities & Scope</h2>
+        <div class="bw-grid">
+          <label class="bw-check">
+            <input type="checkbox" id="cap-scaffold" checked />
+            <span>Scaffold full stack (frontend + backend)</span>
+          </label>
+          <label class="bw-check">
+            <input type="checkbox" id="cap-db" checked />
+            <span>Database layer (schema + migrations)</span>
+          </label>
+          <label class="bw-check">
+            <input type="checkbox" id="cap-api" checked />
+            <span>API design + implementation</span>
+          </label>
+          <label class="bw-check">
+            <input type="checkbox" id="cap-auth" checked />
+            <span>Auth (users, sessions, JWT)</span>
+          </label>
+          <label class="bw-check">
+            <input type="checkbox" id="cap-media" checked />
+            <span>Media pipeline (R2, uploads)</span>
+          </label>
+          <label class="bw-check">
+            <input type="checkbox" id="cap-cloudflare" checked />
+            <span>Cloudflare (Workers, KV, D1, Queues, Cron)</span>
+          </label>
+          <label class="bw-check">
+            <input type="checkbox" id="cap-frontend" checked />
+            <span>HTML/CSS/JS/SPA frontend</span>
+          </label>
+          <label class="bw-check">
+            <input type="checkbox" id="cap-serviceworker" checked />
+            <span>PWA: manifest + service worker</span>
+          </label>
+          <label class="bw-check">
+            <input type="checkbox" id="cap-deploy" checked />
+            <span>Deployment configs (Docker, wrangler, etc.)</span>
+          </label>
+          <label class="bw-check">
+            <input type="checkbox" id="cap-fix" checked />
+            <span>Automatic error analysis & fixing</span>
+          </label>
+        </div>
+        <div class="bw-row">
+          <label class="bw-label">Stack preset</label>
+          <select id="stack-select" class="bw-input">
+            <option value="react-node">React + Node</option>
+            <option value="react-fastapi">React + FastAPI</option>
+            <option value="svelte-worker">Svelte + Cloudflare Worker</option>
+            <option value="next-node">Next.js + Node</option>
+            <option value="vanilla-html">Vanilla HTML/CSS/JS + Worker</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="bw-panel">
+        <h2>Agent Control</h2>
+        <div class="bw-row bw-row-buttons">
+          <button id="run-agent" class="bw-btn primary">Run Autonomous Builder</button>
+          <button id="run-limited" class="bw-btn">Run With Current Scope Only</button>
+        </div>
+        <div class="bw-row">
+          <label class="bw-label">Paste build / runtime errors for auto‑fix</label>
+          <textarea id="error-log" class="bw-textarea" placeholder="Paste npm, node, python, wrangler, or browser console errors here..."></textarea>
+        </div>
+        <div class="bw-row bw-row-buttons">
+          <button id="fix-errors" class="bw-btn danger">Analyze & Fix Errors</button>
+        </div>
+      </section>
+
+      <section class="bw-panel">
+        <h2>Activity & Logs</h2>
+        <div id="log" class="bw-log"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
